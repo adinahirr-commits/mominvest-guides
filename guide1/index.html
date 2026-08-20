@@ -59,6 +59,11 @@
   .mark svg{position:absolute;right:2%;left:2%;bottom:-.08em;width:96%;height:.3em;overflow:visible}
   .mark svg path{fill:none;stroke:var(--pink);stroke-width:6;stroke-linecap:round;opacity:.9}
 
+  .hero .cred{margin-top:14px;font-size:clamp(.88rem,1.6vw,.98rem);color:var(--ink-soft);font-weight:600;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+  .hero .cred strong{color:var(--ink);font-weight:800}
+  .hero .cred .cred-u{display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
+  .hero .cred .cred-dot{color:var(--pink)}
+  @media (max-width:600px){.hero .cred{flex-direction:column;gap:4px}.hero .cred .cred-sep{display:none}.hero .cred .cred-u{white-space:normal;justify-content:center}}
   .stage{position:relative;z-index:2;margin-top:clamp(30px,4.5vw,52px)}
   .stage::before{content:"";position:absolute;inset:8% 6% -4%;background:radial-gradient(60% 60% at 50% 55%,rgba(239,85,165,.16),rgba(190,224,242,.12) 55%,transparent 75%);filter:blur(8px);z-index:-1}
   .stage img{width:100%;max-width:900px;height:auto;border-radius:clamp(16px,2.4vw,26px);box-shadow:0 24px 50px -30px rgba(25,26,46,.35),0 60px 120px -60px rgba(25,26,46,.4);border:1px solid rgba(255,255,255,.7)}
@@ -123,8 +128,8 @@
   .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
   .rv.on{opacity:1;transform:none}
   @media (prefers-reduced-motion:no-preference){
-    .hero-logo,.pre-head,h1,.stage{animation:rise .9s var(--ease) both}
-    .pre-head{animation-delay:.12s}h1{animation-delay:.22s}.stage{animation-delay:.38s}
+    .hero-logo,.pre-head,h1,.hero .cred,.stage{animation:rise .9s var(--ease) both}
+    .pre-head{animation-delay:.12s}h1{animation-delay:.22s}.hero .cred{animation-delay:.3s}.stage{animation-delay:.38s}
     .mark svg path{stroke-dasharray:230;stroke-dashoffset:230;animation:draw 1s var(--ease) 1s forwards}
   }
   @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
@@ -151,6 +156,7 @@
     <h1>תני לי 15 דקות מעכשיו ואני אתן לך שיטה בדוקה<br>
     ופשוטה להחריד שעזרה לי להחזיר לעצמי <span class="mark num">5640 ש׳׳ח<svg viewBox="0 0 230 12" aria-hidden="true" preserveAspectRatio="none"><path d="M3 9C64 3.5 160 3 227 6.5"/></svg></span><br>
     בלי לקום מהכיסא וישירות מהטלפון שלי…</h1>
+    <p class="cred rv-none"><span class="cred-u"><strong>עדי סומך</strong><span class="cred-dot" aria-hidden="true">·</span>אמא משקיעה</span><span class="cred-dot cred-sep" aria-hidden="true">·</span><span class="cred-u">אלפי אמהות בישראל כבר עשו את זה איתי</span></p>
     <div class="stage">
       <img src="mockup-hero.jpg" alt="המדריך של עדי סומך — איך למצוא בין 300 ל-700 ש״ח כל חודש להשקעה — על מסך מחשב, טאבלט, טלפון ודף מודפס" width="1536" height="1024">
     </div>
