@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>המדריך בדרך אלייך | אמא משקיעה</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%238C9EFF'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --canvas:#FBFAF7; --ink:#191A2E; --ink-soft:#6B6B7B;
+    --pink:#EF55A5; --lime:#CCD537; --vista:#8C9EFF; --sky:#BEE0F2;
+    --pink-soft:#FCE1EF; --sky-soft:#E4F1F9; --line:#ECE7DF;
+    --wa:#25D366;
+    --ease:cubic-bezier(.22,.9,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Heebo',sans-serif;background:var(--canvas);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:clip;min-height:100vh;display:flex;flex-direction:column}
+  ::selection{background:var(--sky)}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--pink);outline-offset:3px;border-radius:6px}
+  .wrap{max-width:720px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  .blob{position:absolute;border-radius:48% 52% 55% 45%/55% 48% 52% 45%;z-index:0;pointer-events:none}
+
+  main{flex:1;position:relative;overflow:hidden;background:linear-gradient(180deg,#F3F8FC 0%,var(--canvas) 55%);padding:clamp(38px,6vw,66px) 0 clamp(50px,7vw,80px);text-align:center}
+  .blob-sky{width:min(46vw,560px);height:min(46vw,560px);background:var(--sky);opacity:.45;top:-26%;right:-16%}
+  .blob-pink{width:min(26vw,320px);height:min(26vw,320px);background:var(--pink-soft);opacity:.85;bottom:-8%;left:-12%}
+
+  .logo img{height:clamp(52px,7vw,74px);width:auto}
+
+  .badge{margin:clamp(24px,4vw,34px) auto 0;width:76px;height:76px;border-radius:50%;background:var(--lime);display:grid;place-items:center;box-shadow:0 18px 36px -18px rgba(204,213,55,.9)}
+  .badge svg{width:38px;height:38px;stroke:var(--ink);stroke-width:3.2;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:40;stroke-dashoffset:40;animation:draw .7s var(--ease) .25s forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  h1{font-weight:900;font-size:clamp(1.55rem,4vw,2.4rem);line-height:1.3;letter-spacing:-.02em;margin-top:clamp(18px,3vw,26px);text-wrap:balance}
+  .lead{margin:clamp(14px,2.2vw,20px) auto 0;max-width:560px;font-weight:600;font-size:clamp(1.05rem,2.1vw,1.24rem);line-height:1.75;color:#3B3C52}
+
+  .tip{margin:clamp(22px,3.2vw,30px) auto 0;max-width:560px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px 22px;font-size:clamp(.95rem,1.8vw,1.02rem);color:#4A4B5E;line-height:1.7;box-shadow:0 18px 40px -30px rgba(25,26,46,.25)}
+  .tip b{font-weight:800;color:var(--ink)}
+
+  .wa-card{margin:clamp(34px,5vw,52px) auto 0;max-width:620px;background:var(--ink);color:#fff;border-radius:32px;padding:clamp(30px,5vw,46px) clamp(24px,4vw,40px);position:relative;overflow:hidden;box-shadow:0 40px 80px -44px rgba(25,26,46,.7)}
+  .wa-card .blob-w{width:min(40vw,360px);height:min(40vw,360px);background:rgba(140,158,255,.22);top:-40%;left:-14%}
+  .wa-card h2{font-weight:800;font-size:clamp(1.25rem,2.8vw,1.6rem);line-height:1.4;letter-spacing:-.01em;position:relative;z-index:2}
+  .wa-card p{margin-top:14px;font-size:clamp(1rem,2vw,1.12rem);line-height:1.75;color:rgba(255,255,255,.86);position:relative;z-index:2}
+  .wa-card .surprise{margin-top:12px;font-weight:800;color:#fff}
+  .btn-wa{position:relative;z-index:2;margin-top:clamp(24px,3.6vw,32px);display:inline-flex;align-items:center;justify-content:center;gap:12px;background:var(--wa);color:#062E17;border:none;border-radius:100px;padding:19px 42px;font-family:inherit;font-weight:900;font-size:clamp(1.04rem,2.2vw,1.2rem);line-height:1.3;text-decoration:none;cursor:pointer;transition:transform .2s var(--ease),filter .2s;box-shadow:0 10px 24px -10px rgba(37,211,102,.6),0 30px 60px -28px rgba(37,211,102,.55);animation:pulse 2.6s ease-in-out 1.2s infinite}
+  .btn-wa:hover{filter:brightness(1.05);transform:translateY(-2px);animation:none}
+  .btn-wa svg{width:26px;height:26px;flex:none;fill:currentColor}
+  @keyframes pulse{0%,100%{box-shadow:0 10px 24px -10px rgba(37,211,102,.6),0 30px 60px -28px rgba(37,211,102,.55)}50%{box-shadow:0 10px 24px -10px rgba(37,211,102,.75),0 30px 70px -24px rgba(37,211,102,.8)}}
+  @media (prefers-reduced-motion:reduce){.btn-wa{animation:none}.badge svg{animation:none;stroke-dashoffset:0}}
+  .free{margin-top:16px;font-size:.92rem;color:rgba(255,255,255,.62);position:relative;z-index:2}
+
+  .sign{margin-top:clamp(30px,4.5vw,42px);font-weight:700;font-size:1.05rem}
+  .sign span{display:block;color:var(--ink-soft);font-weight:500;font-size:.95rem;margin-top:2px}
+
+  footer{background:var(--ink);color:#fff;padding:clamp(30px,4.5vw,44px) 0 26px;text-align:center}
+  footer img{height:46px;width:auto;opacity:.95}
+  .foot-links{margin-top:18px;font-size:.85rem;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;color:rgba(255,255,255,.66)}
+  .foot-links button{background:none;border:none;font-family:inherit;font-size:.85rem;color:rgba(255,255,255,.66);border-bottom:1px solid rgba(255,255,255,.25);padding:0 0 1px;cursor:pointer}
+  .foot-links button:hover{color:#fff;border-color:#fff}
+  .foot-copy{margin-top:14px;font-size:.78rem;color:rgba(255,255,255,.4)}
+
+  dialog{border:none;border-radius:24px;padding:0;max-width:560px;width:calc(100% - 40px);box-shadow:0 40px 90px -40px rgba(25,26,46,.5)}
+  dialog::backdrop{background:rgba(25,26,46,.45)}
+  .dlg{padding:clamp(24px,4vw,34px);text-align:right;font-size:.96rem;line-height:1.75}
+  .dlg h3{font-weight:800;font-size:1.2rem;margin-bottom:12px}
+  .dlg p + p{margin-top:10px}
+  .dlg .dlg-close{margin-top:20px;background:var(--ink);color:#fff;border:none;border-radius:100px;padding:11px 28px;font-family:inherit;font-weight:800;font-size:.95rem;cursor:pointer}
+</style>
+</head>
+<body>
+
+<main>
+  <div class="blob blob-sky" aria-hidden="true"></div>
+  <div class="blob blob-pink" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="logo"><img src="../assets/logo-ink.png" alt="אמא משקיעה — צמיחה, חופש, התפתחות"></div>
+
+    <div class="badge" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M4 12.5 10 18 20 6"/></svg>
+    </div>
+
+    <h1>יש! המדריך שלך<br>בדרך אלייך למייל 💛</h1>
+    <p class="lead">עוד כמה דקות הוא כבר מחכה לך בתיבה,<br>עם שתי הפעולות שלוקחות 5 דקות מהטלפון.</p>
+
+    <p class="tip"><b>טיפ קטן שיחסוך לך חיפוש:</b> אם הוא לא הגיע תוך כמה דקות, שווה להציץ בלשונית "קידומי מכירות" או בספאם — ולסמן אותו כ"לא ספאם", כדי שלא נפספס אחת את השנייה בפעם הבאה.</p>
+
+    <section class="wa-card">
+      <div class="blob blob-w" aria-hidden="true"></div>
+      <h2>ובינתיים — בואי להצטרף לקבוצת הווטסאפ שלנו</h2>
+      <p>זו הקבוצה החינמית של אמא משקיעה, ושם קורים הדברים הכי טובים: עוד צעדים קטנים בדיוק כמו זה, כאלה שלוקחים כמה דקות ומזיזים לילדים שלך עשרות אלפי שקלים לעתיד.</p>
+      <p class="surprise">ומחכות לך שם עוד כמה הפתעות בפנים 🎁</p>
+      <a class="btn-wa" href="https://chat.whatsapp.com/JJEXIwCK9c508iRWqNgqHw?mode=gi_t" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.38-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35Z"/><path d="M12.04 2C6.6 2 2.17 6.43 2.17 11.87c0 1.74.46 3.44 1.32 4.94L2 22.5l5.85-1.53a9.83 9.83 0 0 0 4.19.94h.01c5.43 0 9.86-4.43 9.86-9.87A9.8 9.8 0 0 0 19 4.9a9.8 9.8 0 0 0-6.96-2.9Zm0 17.98h-.01a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.47.91.93-3.38-.2-.31a8.16 8.16 0 0 1-1.25-4.36c0-4.52 3.68-8.2 8.21-8.2a8.15 8.15 0 0 1 5.8 2.4 8.15 8.15 0 0 1 2.4 5.81c0 4.52-3.68 8.2-8.2 8.2Z"/></svg>
+        להצטרפות לקבוצת הווטסאפ החינמית
+      </a>
+      <p class="free">בלי עלות, בלי התחייבות, ואפשר לצאת בכל רגע.</p>
+    </section>
+
+    <p class="sign">נתראה בפנים,<br>עדי סומך<span>אמא משקיעה</span></p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="../assets/logo-white.png" alt="אמא משקיעה — מרחב נשי לצמיחה וחופש">
+    <nav class="foot-links" aria-label="קישורים משפטיים">
+      <button type="button" data-dlg="dlg-privacy">מדיניות פרטיות</button><span aria-hidden="true">·</span>
+      <button type="button" data-dlg="dlg-a11y">הצהרת נגישות</button>
+    </nav>
+    <p class="foot-copy">© <span id="year"></span> אמא משקיעה · עדי סומך</p>
+  </div>
+</footer>
+
+<dialog id="dlg-privacy"><div class="dlg">
+  <h3>מדיניות פרטיות</h3>
+  <p>הפרטים שהשארת (שם וכתובת מייל) נשמרים אצלנו לצורך שליחת המדריך ותכנים נוספים מאמא משקיעה, בהתאם לחוק הגנת הפרטיות ולתיקון 40 לחוק התקשורת. הפרטים לא נמסרים לצד שלישי.</p>
+  <p>אפשר להסיר את עצמך מהדיוור בכל רגע, בקליק בתחתית כל מייל, או בפנייה אלינו: <a href="mailto:mominvest10x@gmail.com">mominvest10x@gmail.com</a>.</p>
+  <button class="dlg-close" type="button" data-close>סגירה</button>
+</div></dialog>
+
+<dialog id="dlg-a11y"><div class="dlg">
+  <h3>הצהרת נגישות</h3>
+  <p>אנחנו משתדלות שהדף יהיה נגיש לכולן. הוא נבנה בהתאם לעקרונות תקן ישראלי 5568 ברמת AA: ניווט מלא במקלדת, ניגודיות צבעים תקינה, טקסט חלופי לתמונות, והתאמה להקטנה והגדלה של הטקסט בדפדפן.</p>
+  <p>נתקלת בקושי או במשהו שלא עובד? נשמח שתספרי לנו ונתקן: <a href="mailto:mominvest10x@gmail.com">mominvest10x@gmail.com</a>.</p>
+  <button class="dlg-close" type="button" data-close>סגירה</button>
+</div></dialog>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.querySelectorAll('[data-dlg]').forEach(b =>
+    b.addEventListener('click', () => document.getElementById(b.dataset.dlg).showModal()));
+  document.querySelectorAll('dialog [data-close]').forEach(b =>
+    b.addEventListener('click', () => b.closest('dialog').close()));
+</script>
+</body>
+</html>
