@@ -116,7 +116,8 @@
   <h3>מדיניות פרטיות</h3>
   <p>הפרטים שהשארת (שם וכתובת מייל) נשמרים אצלנו לצורך שליחת המדריך ותכנים נוספים מאמא משקיעה, בהתאם לחוק הגנת הפרטיות ולתיקון 40 לחוק התקשורת. הפרטים לא נמסרים לצד שלישי.</p>
   <p>אפשר להסיר את עצמך מהדיוור בכל רגע, בקליק בתחתית כל מייל, או בפנייה אלינו: <a href="mailto:mominvest10x@gmail.com">mominvest10x@gmail.com</a>.</p>
-  <button class="dlg-close" type="button" data-close>סגירה</button>
+    <p>הדף מודד גם כמה אנשים נכנסו אליו ומאיזה קישור הגיעו, באמצעות מזהה אנונימי שנשמר בדפדפן שלך. המדידה הזו נשמרת אצלנו בלבד, לא כוללת שם או כתובת מייל, ולא מועברת לצד שלישי.</p>
+<button class="dlg-close" type="button" data-close>סגירה</button>
 </div></dialog>
 
 <dialog id="dlg-a11y"><div class="dlg">
@@ -132,6 +133,36 @@
     b.addEventListener('click', () => document.getElementById(b.dataset.dlg).showModal()));
   document.querySelectorAll('dialog [data-close]').forEach(b =>
     b.addEventListener('click', () => b.closest('dialog').close()));
+</script>
+<script>
+  // ---- מדידה: כניסה לדף. הדף סטטי ואין לו לוגים, אז הספירה נעשית בשרת הפורטל.
+  // ה-vid הוא מזהה אנונימי בדפדפן (בלי שם, בלי מייל) כדי לספור אנשים ולא רענונים.
+  (function(){
+    var TRACK = "https://academy.mominvest.co.il/guide-hit";
+    var q = new URLSearchParams(location.search);
+    var vid;
+    try {
+      vid = localStorage.getItem('mi_vid');
+      if(!vid){ vid = (Date.now().toString(36) + Math.random().toString(36).slice(2,10)); localStorage.setItem('mi_vid', vid); }
+      // מקור ראשון נשמר, כדי שגם מי שחוזרת ישירות תיוחס לפרסום שהביא אותה
+      ['ref','utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){
+        if(q.get(k)) localStorage.setItem('mi_'+k, q.get(k));
+      });
+    } catch(e){ vid = 'nostore'; }
+    var p = new URLSearchParams();
+    p.set('page', 'thanks');
+    p.set('vid', vid || '');
+    ['ref','utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){
+      var v = q.get(k) || (function(){ try { return localStorage.getItem('mi_'+k); } catch(e){ return ''; } })();
+      if(v) p.set(k, v);
+    });
+    var body = p.toString();
+    try {
+      if(!navigator.sendBeacon || !navigator.sendBeacon(TRACK, new Blob([body], {type:'application/x-www-form-urlencoded'}))){
+        fetch(TRACK, {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:body, keepalive:true}).catch(function(){});
+      }
+    } catch(e){}
+  })();
 </script>
 </body>
 </html>
