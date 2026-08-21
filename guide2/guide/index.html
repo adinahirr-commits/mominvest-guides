@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>חיסכון לכל ילד — המדריך המלא | אמא משקיעה</title>
+<meta name="description" content="שתי פעולות פשוטות של 5 דקות שהופכות את 'חיסכון לכל ילד' של המדינה מ-18,000 ש״ח לאזור 50-70 אלף ש״ח לילד.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%238C9EFF'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --canvas:#FBFAF7; --ink:#191A2E; --ink-soft:#6B6B7B;
+    --pink:#EF55A5; --lime:#CCD537; --vista:#8C9EFF; --sky:#BEE0F2;
+    --pink-soft:#FCE1EF; --sky-soft:#E4F1F9; --line:#ECE7DF;
+    --wa:#25D366;
+    --shadow-card:0 18px 40px -28px rgba(25,26,46,.18);
+    --ease:cubic-bezier(.22,.9,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Heebo',sans-serif;background:var(--canvas);color:var(--ink);line-height:1.85;overflow-x:clip;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--sky)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  .num{font-variant-numeric:tabular-nums}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--pink);outline-offset:3px;border-radius:6px}
+  .blob{position:absolute;border-radius:48% 52% 55% 45%/55% 48% 52% 45%;z-index:0;pointer-events:none}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--pink);color:var(--ink);border:none;border-radius:100px;padding:16px 40px;font-family:inherit;font-weight:800;font-size:clamp(1rem,2vw,1.12rem);line-height:1.35;text-decoration:none;cursor:pointer;transition:transform .2s var(--ease),filter .2s;box-shadow:0 6px 14px -8px rgba(239,85,165,.55),0 22px 44px -20px rgba(239,85,165,.4)}
+  .btn:hover{filter:brightness(.95);transform:translateY(-2px)}
+  .btn svg{width:18px;height:18px;flex:none}
+
+  /* topbar */
+  .topbar{position:fixed;inset-inline:0;top:0;z-index:50;background:rgba(251,250,247,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transform:translateY(-110%);transition:transform .45s var(--ease)}
+  .topbar.on{transform:translateY(0)}
+  .topbar-in{max-width:1080px;margin:0 auto;padding:9px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .topbar img{height:28px;width:auto;display:block}
+  .topbar .btn-wa{padding:9px 20px;font-size:.9rem;box-shadow:none}
+
+  /* hero */
+  .hero{position:relative;padding:clamp(40px,6vw,68px) 0 clamp(30px,4vw,44px);text-align:center;overflow:hidden;background:linear-gradient(180deg,#F3F8FC 0%,var(--canvas) 62%)}
+  .blob-sky1{width:min(46vw,560px);height:min(46vw,560px);background:var(--sky);opacity:.45;top:-24%;right:-16%}
+  .blob-pink1{width:min(26vw,320px);height:min(26vw,320px);background:var(--pink-soft);opacity:.85;bottom:-6%;left:-12%}
+  .hero-logo img{height:clamp(52px,7vw,72px);width:auto}
+  .eyebrow{margin-top:clamp(20px,3vw,28px);font-weight:800;font-size:.92rem;letter-spacing:.14em;color:var(--pink)}
+  h1{font-weight:900;font-size:clamp(1.6rem,4vw,2.5rem);line-height:1.32;letter-spacing:-.02em;margin-top:10px;text-wrap:balance}
+  .hero .lead{margin:clamp(16px,2.4vw,22px) auto 0;max-width:620px;font-weight:600;font-size:clamp(1.05rem,2.1vw,1.25rem);line-height:1.7;color:#3B3C52}
+  .hero .by{margin-top:16px;font-size:.92rem;color:var(--ink-soft);font-weight:600}
+
+  /* prose */
+  section{position:relative}
+  .prose{padding:clamp(30px,4.5vw,46px) 0}
+  .prose p{font-size:clamp(1.03rem,2vw,1.13rem)}
+  .prose p + p{margin-top:18px}
+  .prose strong{font-weight:800}
+  .hl{font-weight:800;background:linear-gradient(transparent 58%,rgba(204,213,55,.55) 58%);padding:0 2px}
+  .hl-pink{font-weight:800;background:linear-gradient(transparent 58%,rgba(252,225,239,.95) 58%);padding:0 2px}
+
+  h2{font-weight:800;font-size:clamp(1.35rem,3vw,1.85rem);letter-spacing:-.02em;line-height:1.35;text-wrap:balance}
+  .sec-head{text-align:center;margin-bottom:clamp(22px,3.5vw,34px)}
+
+  /* numbers */
+  .numbers{background:#fff;border-block:1px solid var(--line);padding:clamp(44px,6.5vw,76px) 0}
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:clamp(22px,3vw,30px)}
+  @media (max-width:620px){.cmp{grid-template-columns:1fr}}
+  .cmp-card{border:1px solid var(--line);border-radius:24px;padding:26px 24px;text-align:center;background:var(--canvas)}
+  .cmp-card.win{background:var(--sky-soft);border-color:#CBE3F2}
+  .cmp-tag{font-weight:700;font-size:.9rem;color:var(--ink-soft)}
+  .cmp-big{font-weight:900;font-size:clamp(1.9rem,5.5vw,2.6rem);line-height:1.15;margin:8px 0 6px;letter-spacing:-.03em}
+  .cmp-card.win .cmp-big{color:#1B6FA8}
+  .cmp-note{font-size:.9rem;color:var(--ink-soft);line-height:1.6}
+  .delta{margin-top:20px;text-align:center;font-weight:800;font-size:clamp(1.05rem,2.2vw,1.25rem);line-height:1.6}
+
+  /* steps */
+  .steps{padding:clamp(48px,7vw,86px) 0;overflow:hidden}
+  .blob-lime{width:min(24vw,300px);height:min(24vw,300px);background:var(--lime);opacity:.15;top:2%;left:-12%}
+  .step{background:#fff;border:1px solid var(--line);border-radius:28px;padding:clamp(26px,4vw,40px);box-shadow:var(--shadow-card)}
+  .step + .step{margin-top:22px}
+  .step-n{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--pink);color:#fff;font-weight:900;font-size:1.25rem;line-height:1}
+  .step h3{margin-top:16px;font-weight:800;font-size:clamp(1.15rem,2.5vw,1.42rem);line-height:1.4;letter-spacing:-.01em}
+  .step p{margin-top:14px;font-size:clamp(1rem,1.9vw,1.08rem)}
+  .step .btn{margin-top:24px}
+  .do{margin-top:20px;background:var(--canvas);border:1px dashed #DCD5C8;border-radius:18px;padding:18px 20px}
+  .do b{display:block;font-weight:800;margin-bottom:4px}
+  .warn{margin-top:20px;background:#FFF7E8;border:1px solid #F3E2BE;border-radius:18px;padding:18px 20px;font-size:1rem}
+  .warn b{font-weight:800}
+
+  /* done */
+  .done{background:var(--lime);padding:clamp(48px,7vw,80px) 0;text-align:center}
+  .done h2{font-size:clamp(1.3rem,3vw,1.75rem)}
+  .done p{margin-top:14px;font-size:clamp(1.05rem,2.1vw,1.2rem);font-weight:600}
+
+  /* personal */
+  .personal{background:#fff;border-block:1px solid var(--line);padding:clamp(48px,7vw,86px) 0;overflow:hidden}
+  .blob-p{width:min(28vw,340px);height:min(28vw,340px);background:var(--pink-soft);opacity:.55;bottom:-16%;right:-12%}
+  .p-grid{display:grid;grid-template-columns:260px 1fr;gap:clamp(24px,4vw,44px);align-items:start;max-width:900px;margin:0 auto}
+  @media (max-width:780px){.p-grid{grid-template-columns:1fr;max-width:520px}}
+  .p-grid img{width:100%;height:auto;border-radius:22px;box-shadow:0 26px 56px -32px rgba(25,26,46,.38);display:block}
+  @media (max-width:780px){.p-grid figure{max-width:340px;margin:0 auto}}
+  .p-text p{font-size:clamp(1rem,1.9vw,1.09rem)}
+  .p-text p + p{margin-top:16px}
+
+  /* whatsapp CTA */
+  .wa-cta{background:var(--ink);color:#fff;padding:clamp(56px,8vw,100px) 0;text-align:center;overflow:hidden}
+  .wa-cta .blob-w{width:min(34vw,420px);height:min(34vw,420px);background:rgba(140,158,255,.22);top:-24%;left:-10%}
+  .wa-cta h2{color:#fff}
+  .wa-cta .lead{margin:clamp(16px,2.4vw,22px) auto 0;max-width:600px;font-size:clamp(1.05rem,2.1vw,1.2rem);line-height:1.8;color:rgba(255,255,255,.86)}
+  .btn-wa{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:var(--wa);color:#062E17;border:none;border-radius:100px;padding:19px 44px;font-family:inherit;font-weight:900;font-size:clamp(1.05rem,2.2vw,1.22rem);line-height:1.3;text-decoration:none;cursor:pointer;transition:transform .2s var(--ease),filter .2s;box-shadow:0 10px 24px -10px rgba(37,211,102,.6),0 30px 60px -28px rgba(37,211,102,.5)}
+  .btn-wa:hover{filter:brightness(1.05);transform:translateY(-2px)}
+  .btn-wa svg{width:26px;height:26px;flex:none;fill:currentColor}
+  .wa-cta .cta-line{margin-top:clamp(26px,4vw,36px)}
+  .wa-cta .small{margin-top:18px;font-size:.92rem;color:rgba(255,255,255,.6)}
+  .sign{margin-top:clamp(30px,4vw,42px);font-size:1.05rem;font-weight:700;color:rgba(255,255,255,.9)}
+
+  /* sticky mobile wa */
+  .sticky-wa{position:fixed;inset-inline:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(251,250,247,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:none}
+  .sticky-wa .btn-wa{width:100%;padding:15px 20px;font-size:1rem}
+  @media (max-width:760px){.sticky-wa{display:block}body{padding-bottom:78px}}
+
+  .disclaimer{padding:clamp(30px,4vw,44px) 0;background:var(--canvas)}
+  .disclaimer p{max-width:640px;margin:0 auto;text-align:center;font-size:.78rem;color:var(--ink-soft);line-height:1.7}
+  footer{background:var(--ink);color:#fff;padding:clamp(36px,5vw,54px) 0 30px;text-align:center;border-top:1px solid rgba(255,255,255,.08)}
+  footer img{height:50px;width:auto;opacity:.95}
+  .foot-links{margin-top:20px;font-size:.85rem;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;color:rgba(255,255,255,.66)}
+  .foot-links button{background:none;border:none;font-family:inherit;font-size:.85rem;color:rgba(255,255,255,.66);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.25);padding:0 0 1px;cursor:pointer}
+  .foot-links button:hover{color:#fff;border-color:#fff}
+  .foot-copy{margin-top:16px;font-size:.78rem;color:rgba(255,255,255,.4)}
+
+  dialog{border:none;border-radius:24px;padding:0;max-width:560px;width:calc(100% - 40px);box-shadow:0 40px 90px -40px rgba(25,26,46,.5)}
+  dialog::backdrop{background:rgba(25,26,46,.45)}
+  .dlg{padding:clamp(24px,4vw,34px);text-align:right}
+  .dlg h3{font-weight:800;font-size:1.2rem;margin-bottom:12px}
+  .dlg p{font-size:.96rem;line-height:1.75}
+  .dlg p + p{margin-top:10px}
+  .dlg .btn-soft{margin-top:20px;display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border:none;border-radius:100px;padding:11px 28px;font-family:inherit;font-weight:800;font-size:.95rem;cursor:pointer}
+
+  .rv{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .rv.on{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+  @media print{
+    .topbar,.sticky-wa,.wa-cta .cta-line{display:none}
+    body{padding:0;background:#fff}
+    .rv{opacity:1;transform:none}
+    .step,.cmp-card{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar" id="topbar">
+  <div class="topbar-in">
+    <img src="../assets/logo-ink.png" alt="אמא משקיעה">
+    <a class="btn-wa" href="#whatsapp">לקבוצת הווטסאפ</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="blob blob-sky1" aria-hidden="true"></div>
+  <div class="blob blob-pink1" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-logo"><img src="../assets/logo-ink.png" alt="אמא משקיעה — צמיחה, חופש, התפתחות"></div>
+    <p class="eyebrow">המדריך המלא</p>
+    <h1>חיסכון לכל ילד —<br>ממצות את הפוטנציאל</h1>
+    <p class="lead">מפנקות את הילדים ב-5 דקות עבודה,<br>בלי להוציא שקל מהכיס.</p>
+    <p class="by">עדי סומך · אמא משקיעה</p>
+  </div>
+</header>
+
+<section class="prose">
+  <div class="wrap">
+    <p class="rv">הרבה פעמים אנחנו חושבות שכדי להשקיע, או כדי לבנות הון, אנחנו חייבות להביא מהבית סכומי עתק או להבין בנוסחאות מסובכות.</p>
+    <p class="rv">אבל האמת של <strong>"אמא משקיעה"</strong> היא אחרת לגמרי:<br>
+    הסוד הוא לא סכומי עתק. הסוד הוא <span class="hl">זמן ועקביות</span>.</p>
+    <p class="rv">וכאן בדיוק נכנס היתרון הכי גדול שלנו, כאמהות שמנהלות את העתיד של המשפחה שלהן.<br>
+    תוכנית "חיסכון לכל ילד" היא מתנה אדירה מהמדינה, אבל כמו שהיא מוגדרת כברירת מחדל — היא בעיקר מפספסת את הפוטנציאל האדיר שלה.</p>
+  </div>
+</section>
+
+<section class="numbers">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="rv">הנה המספרים שאת חייבת להכיר</h2>
+    </div>
+    <p class="rv">58 שקלים בחודש שישכבו בבנק, או במסלול סולידי מדי, יצטברו לאורך 21 שנה לסכום שיספיק בקושי לכמה קורסים באוניברסיטה או לטיול קצר.</p>
+    <div class="cmp">
+      <div class="cmp-card rv">
+        <p class="cmp-tag">כמו שזה מוגדר עכשיו</p>
+        <p class="cmp-big num">18,000 ₪</p>
+        <p class="cmp-note">58 ₪ בחודש במסלול הבנקאי,<br>לפי ריבית של כ-2% (כולל מענקי המדינה)</p>
+      </div>
+      <div class="cmp-card win rv" style="transition-delay:.1s">
+        <p class="cmp-tag">אחרי שתי לחיצות כפתור</p>
+        <p class="cmp-big num">~72,000 ₪</p>
+        <p class="cmp-note">116 ₪ בחודש במסלול מנייתי,<br>לפי תשואה ממוצעת של כ-7%</p>
+      </div>
+    </div>
+    <p class="delta rv">הוספת בסך הכל <span class="num">58 ₪</span> בחודש מהקצבה —<br>
+    והילד שלך קיבל תוספת של <span class="hl num">מעל 50,000 ₪ נטו</span> לחשבון שלו.</p>
+    <p class="rv" style="margin-top:26px">אלה בדיוק שתי לחיצות כפתור פשוטות, כאלה שלוקחות 5 דקות מהטלפון שלך בזמן שהקפה מתקרר. הכפלת הסכום ל-116 ₪ (עוד 58 ₪ שאת יכולה להפקיד מתוך קצבת הילדים שאת ממילא מקבלת), ומעבר למסלול סיכון גבוה יותר. ככה אנחנו רותמות את כוח השוק ואת הריבית דריבית לטובת הילדים שלנו.</p>
+    <p class="rv">זה בדיוק ההבדל בין לתת לכסף לשכב בבנק, לבין <span class="hl-pink">לתת לו לעבוד</span>. וזה הכוח והסוד של לתת לזמן ולעקביות לעשות את שלהם.</p>
+    <p class="rv" style="font-weight:800;font-size:1.15rem">מוכנה? בואי נתחיל.</p>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="blob blob-lime" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="rv">בואי נעשה סדר בחיסכון של הילדים</h2>
+      <p class="rv" style="margin-top:14px">הנה המדריך המקוצר והכי פשוט שיש. עוד כמה דקות זה מסודר, ולא תצטרכי לגעת בזה עד שהילדים יגדלו.</p>
+    </div>
+
+    <article class="step rv">
+      <span class="step-n num">1</span>
+      <h3>להכפיל את הכסף — להפקיד 116 ₪ במקום 58 ₪</h3>
+      <p>המדינה שמה 58 ₪ בחודש, ואת יכולה להוסיף 58 ₪ נוספים מתוך קצבת הילדים שלך. הכסף יורד אוטומטית, בלי שתצטרכי לזכור או לעשות משהו כל חודש.</p>
+      <div class="do">
+        <b>מה עושים?</b>
+        נכנסות לקישור, מזדהות, ומאשרות את הגדלת החיסכון. זהו.
+      </div>
+      <a class="btn" href="https://b2b.btl.gov.il/BTL.ILG.Payments/TochnitChisachonYeledInfo.aspx?IsBankOrGemel=gemel" target="_blank" rel="noopener">לפתיחת חיסכון או להכפלת הסכום
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg></a>
+    </article>
+
+    <article class="step rv">
+      <span class="step-n num">2</span>
+      <h3>לבחור מסלול סיכון שמתאים לילד שלך לפי הגיל שלו</h3>
+      <div class="warn">
+        <b>רגע, שימי לב לגיל של הילדים:</b><br>
+        מסלול מניות מתאים רק אם הילד/ה מתחת לגיל 11-12, כך שיש לכסף לפחות 5-7 שנים לעבוד ולתקן ירידות. אם הילד/ה כבר בן 15-16, זה כבר נהיה מסוכן יותר, כי טווח הזמן קצר מדי.
+      </div>
+      <p>בכל מקרה חשוב לדעת: אין לנו שום דרך לדעת מה המניות עומדות לעשות. המעבר למסלול מניות הוא אופציה, והבחירה היא שלך. אי אפשר להבטיח רווחים — אבל היסטורית, 100 שנה אחורה, השוק תמיד עלה לאורך זמן, והמסלול המנייתי הניב את התשואות הגבוהות ביותר.</p>
+      <p>ככל שהילד/ה צעיר/ה יותר, יש לכסף יותר זמן לצמוח ולשוק יותר זמן "לתקן", והפער יכול להגיע לעשרות אלפי שקלים.</p>
+      <p>יש לך אופציה לבחור בין מסלול סיכון נמוך, בינוני וגבוה. <strong>ככלל: ככל שהם קטנים יותר — נרצה מסלול של סיכון גבוה יותר, וככל שהם גדולים — נוריד את רמת הסיכון.</strong></p>
+      <div class="do">
+        <b>אז איך עושים את זה?</b>
+        נכנסות לאזור האישי באתר הביטוח הלאומי, ובודקות איזו חברה מנהלת את החיסכון (למשל אלטשולר שחם, מיטב, אנליסט וכו').
+      </div>
+      <a class="btn" href="https://b2b.btl.gov.il/BTL.ILG.Payments/TochnitChisachonYeledListInfo.aspx" target="_blank" rel="noopener">לבדיקה איזו חברה מנהלת את החיסכון
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg></a>
+      <p style="margin-top:26px">אחר כך נכנסות לאתר של אותה חברה (או מתקשרות אליהם, מה שנוח לך) ומבקשות להעביר את החיסכון ל<strong>"מסלול סיכון מוגבר" או "מסלול מניות"</strong> אם תרצי סיכון גבוה, ול<strong>"מסלול סיכון בינוני"</strong> אם תרצי סיכון בינוני.</p>
+      <p style="color:var(--ink-soft);font-size:1rem">זה בחינם, זה קל, וזה נעשה ישירות מול החברה שמנהלת את הכסף — לא דרך הביטוח הלאומי.</p>
+    </article>
+  </div>
+</section>
+
+<section class="done">
+  <div class="wrap">
+    <h2 class="rv">וזהו.</h2>
+    <p class="rv">שתי פעולות פשוטות, וכבר פינקת את הילדים שלך<br>בעשרות אלפי שקלים לעתיד שלהם.</p>
+    <p class="rv" style="transition-delay:.1s;font-weight:800">כמה קל, כמה נוח — וזה הזמן שלך לשבת עם קפה טוב ולהרים לעצמך כוסית 🥂</p>
+  </div>
+</section>
+
+<section class="personal">
+  <div class="blob blob-p" aria-hidden="true"></div>
+  <div class="wrap" style="max-width:1000px">
+    <div class="sec-head"><h2 class="rv">משהו אישי ממני</h2></div>
+    <div class="p-grid">
+      <figure class="rv"><img src="../assets/portrait-hero.jpg" alt="עדי סומך, אמא משקיעה"></figure>
+      <div class="p-text">
+        <p class="rv">אחד הדברים שאני הכי שונאת הוא בירוקרטיה. כל הטפסים האלה עושים לי כאב ראש ומלחיצים אותי.</p>
+        <p class="rv">זה גרם לי לדחיינות של כל העולם הפיננסי — ובמשך 27 שנים אפילו פנסיה לא הייתה לי.</p>
+        <p class="rv">ברגע שהבנתי את הכוח האדיר של הזמן והעקביות, הבנתי כמה שנים קריטיות בזבזתי רק בגלל פחד. הכסף שלי באותן שנים יכול היה להפוך כבר למיליונים.</p>
+        <p class="rv">מאותו רגע עשיתי שינוי פנימי וזהותי — <span class="hl-pink">"אני כבר לא בן אדם שמפחד מכסף"</span>. זה היה תהליך שדרש ממני להסיר חסמים, ובאמצעותו הגעתי לכך שכל הכסף שלנו מושקע, הכפיל את עצמו כבר פי 8, גדל כל שנה, ומושקע בשביל המטרות שלנו: לתת חצי מיליון ש״ח לכל ילד, לבנות בית פרטי על חצי דונם, לטייל כל שנה לפחות פעמיים בחו״ל, לעבוד 5 שעות גג ביום, ולהיות גמישים לעשות את מה שנרצה בלי רגשות האשמה שתמיד ליוו אותי עם כל הוצאה.</p>
+        <p class="rv">את התהליך הזה בניתי ככלי עבודה מסודר, כדי שעוד אמהות שמתמודדות עם אותה בעיה שלי לא יצטרכו לעבור את הדרך המסורבלת שאני עברתי עד שהצלחתי להבין את העולם הזה.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wa-cta" id="whatsapp">
+  <div class="blob blob-w" aria-hidden="true"></div>
+  <div class="wrap">
+    <h2 class="rv">בואי נמשיך ביחד</h2>
+    <p class="lead rv">את הצעד הראשון כבר עשית, והוא הכי חשוב.<br>
+    בקבוצת הווטסאפ של אמא משקיעה אני משתפת עוד צעדים קטנים בדיוק כמו זה — כאלה שלוקחים כמה דקות ומזיזים לילדים שלך עשרות אלפי שקלים לעתיד.</p>
+    <div class="cta-line rv">
+      <a class="btn-wa" href="https://chat.whatsapp.com/JJEXIwCK9c508iRWqNgqHw?mode=gi_t" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.38-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35Z"/><path d="M12.04 2C6.6 2 2.17 6.43 2.17 11.87c0 1.74.46 3.44 1.32 4.94L2 22.5l5.85-1.53a9.83 9.83 0 0 0 4.19.94h.01c5.43 0 9.86-4.43 9.86-9.87A9.8 9.8 0 0 0 19 4.9a9.8 9.8 0 0 0-6.96-2.9Zm0 17.98h-.01a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.47.91.93-3.38-.2-.31a8.16 8.16 0 0 1-1.25-4.36c0-4.52 3.68-8.2 8.21-8.2a8.15 8.15 0 0 1 5.8 2.4 8.15 8.15 0 0 1 2.4 5.81c0 4.52-3.68 8.2-8.2 8.2Z"/></svg>
+        להצטרפות לקבוצת הווטסאפ של אמא משקיעה
+      </a>
+    </div>
+    <p class="small rv">זה בחינם, אפשר לצאת מתי שרוצים, ואני שם כדי לענות על שאלות.</p>
+    <p class="sign rv">מחכה לך בצד השני,<br>עדי סומך 💛</p>
+  </div>
+</section>
+
+<div class="sticky-wa">
+  <a class="btn-wa" href="https://chat.whatsapp.com/JJEXIwCK9c508iRWqNgqHw?mode=gi_t" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.6 2 2.17 6.43 2.17 11.87c0 1.74.46 3.44 1.32 4.94L2 22.5l5.85-1.53a9.83 9.83 0 0 0 4.19.94h.01c5.43 0 9.86-4.43 9.86-9.87A9.8 9.8 0 0 0 19 4.9a9.8 9.8 0 0 0-6.96-2.9Zm0 17.98h-.01a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.47.91.93-3.38-.2-.31a8.16 8.16 0 0 1-1.25-4.36c0-4.52 3.68-8.2 8.21-8.2a8.15 8.15 0 0 1 5.8 2.4 8.15 8.15 0 0 1 2.4 5.81c0 4.52-3.68 8.2-8.2 8.2Z"/></svg>
+    להצטרפות לקבוצת הווטסאפ
+  </a>
+</div>
+
+<div class="disclaimer">
+  <p>דיסקליימר: המידע כאן הוא כללי בלבד ואינו ייעוץ השקעות, ייעוץ פנסיוני או תחליף לייעוץ אישי. הסכומים הם הדגמה חישובית לפי תשואות העבר ואינם הבטחת תשואה. אין באמור התחייבות לרווח כלשהו.</p>
+</div>
+
+<footer>
+  <div class="wrap">
+    <img src="../assets/logo-white.png" alt="אמא משקיעה — מרחב נשי לצמיחה וחופש">
+    <nav class="foot-links" aria-label="קישורים משפטיים">
+      <button type="button" data-dlg="dlg-privacy">מדיניות פרטיות</button><span aria-hidden="true">·</span>
+      <button type="button" data-dlg="dlg-terms">תנאי שימוש</button><span aria-hidden="true">·</span>
+      <button type="button" data-dlg="dlg-a11y">הצהרת נגישות</button>
+    </nav>
+    <p class="foot-copy">© <span id="year"></span> אמא משקיעה · עדי סומך</p>
+  </div>
+</footer>
+
+<dialog id="dlg-privacy"><div class="dlg">
+  <h3>מדיניות פרטיות</h3>
+  <p>הפרטים שאת משאירה (שם וכתובת מייל) נשמרים אצלנו לצורך שליחת המדריך ותכנים נוספים מאמא משקיעה, בהתאם לחוק הגנת הפרטיות ולתיקון 40 לחוק התקשורת. הפרטים לא נמסרים לצד שלישי.</p>
+  <p>אפשר להסיר את עצמך מהדיוור בכל רגע, בקליק בתחתית כל מייל, או בפנייה אלינו: <a href="mailto:mominvest10x@gmail.com">mominvest10x@gmail.com</a>.</p>
+  <button class="btn-soft" type="button" data-close>סגירה</button>
+</div></dialog>
+
+<dialog id="dlg-terms"><div class="dlg">
+  <h3>תנאי שימוש</h3>
+  <p>התכנים באתר ובמדריך הם מידע כללי בלבד ואינם מהווים ייעוץ השקעות, ייעוץ פנסיוני, ייעוץ מס או המלצה לביצוע פעולה כלשהי. כל החלטה היא באחריותך בלבד, ומומלץ להתייעץ עם בעל רישיון מתאים.</p>
+  <p>אין להעתיק, לשכפל או להפיץ את תכני המדריך ללא אישור בכתב. כל הזכויות שמורות לאמא משקיעה · עדי סומך.</p>
+  <button class="btn-soft" type="button" data-close>סגירה</button>
+</div></dialog>
+
+<dialog id="dlg-a11y"><div class="dlg">
+  <h3>הצהרת נגישות</h3>
+  <p>אנחנו משתדלות שהאתר יהיה נגיש לכולן. הדף נבנה בהתאם לעקרונות תקן ישראלי 5568 ברמת AA: ניווט מלא במקלדת, ניגודיות צבעים תקינה, טקסט חלופי לתמונות, והתאמה להקטנה והגדלה של הטקסט בדפדפן.</p>
+  <p>נתקלת בקושי או במשהו שלא עובד? נשמח שתספרי לנו ונתקן: <a href="mailto:mominvest10x@gmail.com">mominvest10x@gmail.com</a>.</p>
+  <button class="btn-soft" type="button" data-close>סגירה</button>
+</div></dialog>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const topbar = document.getElementById('topbar');
+  const hero = document.querySelector('.hero');
+  addEventListener('scroll', () => {
+    topbar.classList.toggle('on', scrollY > hero.offsetHeight * .6);
+  }, {passive:true});
+
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
+  }), {threshold:.15, rootMargin:'0px 0px -40px'});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  document.querySelectorAll('[data-dlg]').forEach(b =>
+    b.addEventListener('click', () => document.getElementById(b.dataset.dlg).showModal()));
+  document.querySelectorAll('dialog [data-close]').forEach(b =>
+    b.addEventListener('click', () => b.closest('dialog').close()));
+</script>
+</body>
+</html>

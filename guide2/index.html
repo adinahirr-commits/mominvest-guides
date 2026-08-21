@@ -2,7 +2,6 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>איך לסדר לילד שלך 50-70 אלף ש"ח מתנה מהמדינה | אמא משקיעה</title>
 <meta name="description" content="גלי טריק של 3 דקות שיעזור לך להפוך את 'חיסכון לכל ילד' של המדינה לעשרות אלפי שקלים לילד שלך, בלי להוציא אפילו שקל אחד מהכיס.">
@@ -134,6 +133,21 @@
   .foot-links a:hover{color:#fff;border-color:#fff}
   .foot-copy{margin-top:18px;font-size:.78rem;color:rgba(255,255,255,.4)}
 
+
+  /* ---------- legal dialogs ---------- */
+  dialog{border:none;border-radius:24px;padding:0;max-width:560px;width:calc(100% - 40px);box-shadow:0 40px 90px -40px rgba(25,26,46,.5)}
+  dialog::backdrop{background:rgba(25,26,46,.45)}
+  .dlg{padding:clamp(24px,4vw,34px);text-align:right;font-size:.96rem;line-height:1.75}
+  .dlg h3{font-weight:800;font-size:1.2rem;margin-bottom:12px}
+  .dlg p + p{margin-top:10px}
+  .dlg .dlg-close{margin-top:20px;background:var(--ink);color:#fff;border:none;border-radius:100px;padding:11px 28px;font-family:inherit;font-weight:800;font-size:.95rem;cursor:pointer}
+  .foot-links button{background:none;border:none;font-family:inherit;font-size:.85rem;color:rgba(255,255,255,.66);border-bottom:1px solid rgba(255,255,255,.25);padding:0 0 1px;cursor:pointer;transition:color .15s,border-color .15s}
+  .foot-links button:hover{color:#fff;border-color:#fff}
+
+  /* ---------- form states ---------- */
+  .form-card .btn[disabled]{opacity:.75;cursor:default;transform:none}
+  .form-err{margin-top:14px;font-size:.92rem;font-weight:700;color:#B4245F;display:none}
+
   /* ---------- motion ---------- */
   .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
   .rv.on{opacity:1;transform:none}
@@ -230,6 +244,7 @@
       <label for="femail">מייל</label>
       <input id="femail" name="email" type="email" autocomplete="email" required>
       <button class="btn" type="submit">עדי שלחי לי את המדריך<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+      <p class="form-err" id="form-err" role="alert"></p>
       <p class="consent">בלחיצה על הכפתור את מאשרת קבלת המדריך ותכנים במייל מאמא משקיעה. אפשר להסיר את עצמך בכל רגע, בקליק.</p>
     </form>
   </div>
@@ -276,13 +291,34 @@
   <div class="wrap">
     <img src="assets/logo-white.png" alt="אמא משקיעה — מרחב נשי לצמיחה וחופש">
     <nav class="foot-links" aria-label="קישורים משפטיים">
-      <a href="#">מדיניות פרטיות</a><span aria-hidden="true">·</span>
-      <a href="#">תנאי שימוש</a><span aria-hidden="true">·</span>
-      <a href="#">הצהרת נגישות</a>
+      <button type="button" data-dlg="dlg-privacy">מדיניות פרטיות</button><span aria-hidden="true">·</span>
+      <button type="button" data-dlg="dlg-terms">תנאי שימוש</button><span aria-hidden="true">·</span>
+      <button type="button" data-dlg="dlg-a11y">הצהרת נגישות</button>
     </nav>
     <p class="foot-copy">© אמא משקיעה · עדי סומך</p>
   </div>
 </footer>
+
+<dialog id="dlg-privacy"><div class="dlg">
+  <h3>מדיניות פרטיות</h3>
+  <p>הפרטים שאת משאירה (שם וכתובת מייל) נשמרים אצלנו לצורך שליחת המדריך ותכנים נוספים מאמא משקיעה, בהתאם לחוק הגנת הפרטיות ולתיקון 40 לחוק התקשורת. הפרטים לא נמסרים לצד שלישי.</p>
+  <p>אפשר להסיר את עצמך מהדיוור בכל רגע, בקליק בתחתית כל מייל, או בפנייה אלינו: <a href="mailto:mominvest10x@gmail.com">mominvest10x@gmail.com</a>.</p>
+  <button class="dlg-close" type="button" data-close>סגירה</button>
+</div></dialog>
+
+<dialog id="dlg-terms"><div class="dlg">
+  <h3>תנאי שימוש</h3>
+  <p>התכנים בדף ובמדריך הם מידע כללי בלבד ואינם מהווים ייעוץ השקעות, ייעוץ פנסיוני, ייעוץ מס או המלצה לביצוע פעולה כלשהי. כל החלטה היא באחריותך בלבד, ומומלץ להתייעץ עם בעל רישיון מתאים.</p>
+  <p>אין להעתיק, לשכפל או להפיץ את תכני המדריך ללא אישור בכתב. כל הזכויות שמורות לאמא משקיעה · עדי סומך.</p>
+  <button class="dlg-close" type="button" data-close>סגירה</button>
+</div></dialog>
+
+<dialog id="dlg-a11y"><div class="dlg">
+  <h3>הצהרת נגישות</h3>
+  <p>אנחנו משתדלות שהדף יהיה נגיש לכולן. הוא נבנה בהתאם לעקרונות תקן ישראלי 5568 ברמת AA: ניווט מלא במקלדת, ניגודיות צבעים תקינה, טקסט חלופי לתמונות, והתאמה להקטנה והגדלה של הטקסט בדפדפן.</p>
+  <p>נתקלת בקושי או במשהו שלא עובד? נשמח שתספרי לנו ונתקן: <a href="mailto:mominvest10x@gmail.com">mominvest10x@gmail.com</a>.</p>
+  <button class="dlg-close" type="button" data-close>סגירה</button>
+</div></dialog>
 
 <script>
   const topbar = document.getElementById('topbar');
@@ -296,9 +332,80 @@
   }), {threshold:.18, rootMargin:'0px 0px -40px'});
   document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-  document.getElementById('leadform').addEventListener('submit', e => {
+  document.querySelectorAll('[data-dlg]').forEach(b =>
+    b.addEventListener('click', () => document.getElementById(b.dataset.dlg).showModal()));
+  document.querySelectorAll('dialog [data-close]').forEach(b =>
+    b.addEventListener('click', () => b.closest('dialog').close()));
+
+  // ==== שליחת הטופס ====
+  // יעד: רשימת smoove "מגנט: מדריך חסכון לכל ילד" (1162146), דרך endpoint פרוקסי
+  // בשרת course-portal (המפתח לא נחשף בדפדפן). השרת גם שולח את מייל המדריך.
+  var SIGNUP_ENDPOINT = "https://academy.mominvest.co.il/guide-signup";
+  var GUIDE_PAGE = "guide/";
+  var form = document.getElementById('leadform');
+  var errEl = document.getElementById('form-err');
+
+  form.addEventListener('submit', function(e){
     e.preventDefault();
-    e.target.querySelector('.btn').textContent = 'המדריך בדרך אלייך 🎉';
+    var btn = form.querySelector('.btn');
+    var orig = btn.innerHTML;
+    btn.disabled = true; btn.textContent = 'רגע אחד, שולחת לך…';
+    errEl.style.display = 'none';
+
+    // גוף form-encoded (לא JSON) = "בקשה פשוטה" של CORS, בלי סבב preflight שנתקע
+    // בוובוויו של אינסטגרם/וואטסאפ על חיבור קר.
+    var params = new URLSearchParams();
+    params.set('name',  document.getElementById('fname').value);
+    params.set('email', document.getElementById('femail').value);
+    params.set('src',   new URLSearchParams(location.search).get('ref') || '');
+    var bodyStr = params.toString();
+
+    // רשת ביטחון: יורים את הלידה כבר ברגע הלחיצה, בשליחה שלא תלויה בקריאת תגובת CORS.
+    var beaconed = false;
+    try {
+      if (navigator.sendBeacon) {
+        beaconed = navigator.sendBeacon(SIGNUP_ENDPOINT,
+          new Blob([bodyStr], {type:'application/x-www-form-urlencoded'}));
+      }
+    } catch(err){}
+
+    function toGuide(){ location.href = GUIDE_PAGE; }
+    function fail(){
+      btn.disabled = false; btn.innerHTML = orig;
+      errEl.innerHTML = 'משהו נתקע רגע אצלנו. אפשר לנסות שוב, או <a href="' + GUIDE_PAGE + '">לקרוא את המדריך כאן</a>.';
+      errEl.style.display = 'block';
+    }
+
+    var delays = [0, 2500, 5000];
+    function attempt(i){
+      var done = false;
+      var ctrl = ('AbortController' in window) ? new AbortController() : null;
+      function moveOn(){
+        if(done) return; done = true;
+        if(ctrl){ try{ ctrl.abort(); }catch(err){} }
+        if(beaconed){ toGuide(); return; }   // הלידה נלכדה, ממשיכים למדריך
+        if(i+1 < delays.length){ setTimeout(function(){ attempt(i+1); }, delays[i+1]); }
+        else { fail(); }
+      }
+      var t = setTimeout(moveOn, 8000);
+      fetch(SIGNUP_ENDPOINT, {
+        method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body: bodyStr, signal: ctrl ? ctrl.signal : undefined
+      })
+      .then(function(r){ if(!r.ok){ throw new Error('http '+r.status); } return r.json(); })
+      .then(function(j){
+        if(done) return; done = true; clearTimeout(t);
+        if(j && j.ok){ toGuide(); } else { moveOnFail(); }
+      })
+      .catch(function(){ clearTimeout(t); moveOn(); });
+
+      function moveOnFail(){
+        if(beaconed){ toGuide(); return; }
+        if(i+1 < delays.length){ setTimeout(function(){ attempt(i+1); }, delays[i+1]); }
+        else { fail(); }
+      }
+    }
+    attempt(0);
   });
 </script>
 </body>
