@@ -290,7 +290,7 @@ src="https://www.facebook.com/tr?id=1820166155346211&ev=ViewContent&noscript=1" 
     <p class="lead rv">את הצעד הראשון כבר עשית, והוא הכי חשוב.<br>
     עכשיו מגיע החלק שבאמת משנה את העתיד: לגרום לכסף לעבוד בשבילך. זה בדיוק מה שאנחנו עושות בליווי של אמא משקיעה, צעד צעד, בגובה העיניים.</p>
     <div class="cta-line rv">
-      <a class="btn" href="https://livui.mominvest.co.il/?utm_source=guide2&utm_medium=guide&utm_campaign=child-savings" target="_blank" rel="noopener">אני רוצה להמשיך איתכן 💛</a>
+      <a class="btn" id="cta-livui" href="https://livui.mominvest.co.il/?utm_source=guide2&utm_medium=guide&utm_campaign=child-savings" target="_blank" rel="noopener">אני רוצה להמשיך איתכן 💛</a>
     </div>
     <p class="lead rv">ואם את רוצה קודם להכיר מקרוב: בקבוצת הווטסאפ של אמא משקיעה אני משתפת עוד צעדים קטנים בדיוק כמו זה, כאלה שלוקחים כמה דקות ומזיזים לילדים שלך עשרות אלפי שקלים לעתיד.</p>
     <div class="cta-line rv">
@@ -396,6 +396,25 @@ src="https://www.facebook.com/tr?id=1820166155346211&ev=ViewContent&noscript=1" 
       }
     } catch(e){}
   })();
+</script>
+
+<!-- A/B בסוף המדריך (17/09/2026): מחצית מהקוראות לדף המכירה של הליווי, מחצית לדף הסרטון.
+     הווריאנט נשמר ב-localStorage כדי שאותה גולשת תראה תמיד את אותו יעד.
+     המדידה: utm_source=guideN-sales / guideN-video בדף היעד, וביקון לחיצה guideN-cta-sales / -video. -->
+<script>
+(function(){
+  var btn = document.getElementById('cta-livui'); if(!btn) return;
+  var v;
+  try { v = localStorage.getItem('mi_ab_livui'); if(v!=='sales' && v!=='video'){ v = Math.random()<0.5 ? 'sales' : 'video'; localStorage.setItem('mi_ab_livui', v); } } catch(e){ v = 'sales'; }
+  var base = v==='video' ? 'https://livui.mominvest.co.il/video/' : 'https://livui.mominvest.co.il/';
+  btn.href = base + '?utm_source=guide2-' + v + '&utm_medium=guide&utm_campaign=child-savings&utm_content=ab-' + v;
+  btn.addEventListener('click', function(){
+    var vid=''; try { vid = localStorage.getItem('mi_vid') || ''; if(!vid){ vid = Date.now().toString(36)+Math.random().toString(36).slice(2,10); localStorage.setItem('mi_vid', vid); } } catch(e){}
+    var body = 'page=guide2-cta-' + v + '&vid=' + encodeURIComponent(vid) + '&utm_source=guide2-' + v + '&utm_content=ab-' + v;
+    try { navigator.sendBeacon('https://academy.mominvest.co.il/guide-hit', new Blob([body], {type:'application/x-www-form-urlencoded'})); } catch(e){}
+    try { if(window.fbq) fbq('trackCustom','GuideCtaClick',{content_name:'guide2', variant:v}); } catch(e){}
+  });
+})();
 </script>
 </body>
 </html>  <p>הדף מודד גם כמה אנשים נכנסו אליו ומאיזה קישור הגיעו, באמצעות מזהה אנונימי שנשמר בדפדפן שלך. המדידה הזו נשמרת אצלנו בלבד, לא כוללת שם או כתובת מייל, ולא מועברת לצד שלישי.</p>
