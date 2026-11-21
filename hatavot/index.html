@@ -1,229 +1,246 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>הצ׳קליסט: הכסף שמגיע לך בהריון ואחרי הלידה | אמא משקיעה</title>
-<meta name="description" content="כל ההטבות, המענקים וההחזרים שמגיעים לך בהריון ואחרי הלידה, עם קישור להגשה ליד כל אחד.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>הכסף שמגיע לך בהריון | אמא משקיעה</title>
+<meta name="description" content="הצ׳קליסט של עדי סומך: כל ההחזרים, המענקים וההטבות שמגיעים לך בהריון ואחרי הלידה, עם קישור ליד כל אחד.">
 <meta name="robots" content="noindex">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23EF55A5'/></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23FF5FA2'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;600;800;900&display=swap">
 <style>
-  :root{
-    --canvas:#FBFAF7; --ink:#191A2E; --ink-soft:#6B6B7B;
-    --pink:#EF55A5; --pink-soft:#FCE1EF; --lime:#CCD537; --sky:#BEE0F2; --sky-soft:#E4F1F9;
-    --line:#ECE7DF; --ok:#2E9E6A; --ease:cubic-bezier(.22,.9,.3,1);
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Heebo',Arial,sans-serif;background:var(--canvas);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:clip}
-  .wrap{max-width:720px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-left,0px))}
-  .num{font-variant-numeric:tabular-nums}
-  a{color:inherit}
-  a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--pink);outline-offset:3px;border-radius:6px}
+/* בסגנון "אוטם הנזילות" (סטוריז לילה ורוד), גרסה פשוטה יותר: מסך לכל הטבה, וי לכל אחת */
+:root{
+  --night:#17142E; --night2:#241E48; --pink:#FF5FA2; --pink2:#FFB3D4; --cream:#FFF6EE;
+  --mint:#3DDBB0; --sun:#FFC24B; --ink:#17142E; --mute:#B9B3D6;
+  --f:'Noto Sans Hebrew','Arial Hebrew',Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--night);color:#fff;font-family:var(--f);font-size:18px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.app{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:18px;padding-top:16px}
+h1,h2,h3{margin:0;font-weight:900;line-height:1.15;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+button{font-family:var(--f);cursor:pointer}
+a:focus-visible,button:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.scr{border-radius:32px;padding:30px 22px;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden;scroll-margin-top:14px}
+.dark{background:linear-gradient(160deg,var(--night2),#14112A)}
+.pinkbg{background:linear-gradient(160deg,#FF6FAB,#FF4F8F)}
+.creambg{background:var(--cream);color:var(--ink)}
+.mintbg{background:linear-gradient(160deg,#4BE3BA,#2CC79B);color:var(--ink)}
+.tag{display:inline-flex;gap:8px;align-items:center;font-weight:800;font-size:14px;border-radius:999px;padding:6px 14px;width:fit-content}
+.dark .tag{background:rgba(255,95,162,.18);color:var(--pink2)}
+.dark .tag.auto{background:rgba(61,219,176,.16);color:var(--mint)}
+.pinkbg .tag{background:rgba(255,255,255,.22);color:#fff}
+.creambg .tag{background:#FFE0EC;color:#C2316F}
+.mintbg .tag{background:rgba(23,20,46,.12);color:var(--ink)}
+.center{text-align:center;align-items:center}
+.big{font-size:44px}
+.mid{font-size:29px}
+.lead{font-size:19px;opacity:.94}
+.small{font-size:14px;opacity:.82;line-height:1.55}
+.pk{color:var(--pink)}
+.cta{display:inline-flex;justify-content:center;align-items:center;gap:8px;background:var(--pink);color:#fff;border:0;border-radius:18px;padding:16px 26px;font-weight:900;font-size:19px;text-decoration:none;box-shadow:0 14px 30px -14px rgba(255,95,162,.8)}
+.cta.ink{background:var(--ink);color:#fff;box-shadow:none}
 
-  .hero{padding:40px 0 28px;text-align:center;background:linear-gradient(180deg,var(--pink-soft) 0%,var(--canvas) 85%)}
-  .hero img{height:56px;width:auto}
-  .eyebrow{margin-top:18px;font-weight:800;font-size:.9rem;letter-spacing:.12em;color:var(--pink)}
-  h1{font-weight:900;font-size:clamp(1.6rem,5vw,2.4rem);line-height:1.3;letter-spacing:-.02em;margin-top:8px;text-wrap:balance}
-  .lead{margin:14px auto 0;max-width:560px;font-weight:600;font-size:clamp(1.02rem,2.4vw,1.18rem);color:#3B3C52}
+/* הלוח: 8 הטבות, מתמלא בוורוד כשמסמנים */
+.board{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.chip{display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;text-decoration:none;background:#fff;border-radius:20px;padding:12px 8px;color:var(--ink);font-weight:800;font-size:15px;line-height:1.3;box-shadow:0 8px 18px -14px rgba(23,20,46,.35);position:relative}
+.chip .e{font-size:26px}
+.chip .s{font-weight:600;font-size:13px;color:#8a7f9a}
+.chip.on{background:var(--pink);color:#fff}
+.chip.on .s{color:#fff;opacity:.9}
+.chip.on::after{content:"✓";position:absolute;top:8px;inset-inline-start:12px;font-weight:900}
+.count{font-weight:900;font-size:22px}
 
-  .bar{position:sticky;top:0;z-index:20;background:rgba(251,250,247,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:10px 0}
-  .bar .wrap{display:flex;align-items:center;gap:12px}
-  .track{flex:1;height:10px;background:var(--line);border-radius:10px;overflow:hidden}
-  .fill{height:100%;width:0;background:var(--pink);border-radius:10px;transition:width .4s var(--ease)}
-  .count{font-weight:800;font-size:.92rem;white-space:nowrap}
+/* מסך הטבה */
+.head{display:flex;gap:14px;align-items:center}
+.ico{flex:none;width:64px;height:64px;border-radius:20px;background:rgba(255,255,255,.08);display:grid;place-items:center;font-size:34px}
+.amt{display:inline-block;background:var(--mint);color:var(--ink);font-weight:900;font-size:16px;border-radius:999px;padding:4px 14px;margin-top:6px}
+.dark ul{margin:0;padding-inline-start:20px;display:flex;flex-direction:column;gap:6px;font-size:17px;color:#E9E6F6}
+.do{background:var(--cream);color:var(--ink);border-radius:20px;padding:14px 16px;font-size:16.5px;line-height:1.55}
+.do b{color:#C2316F}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.lnk{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);color:#fff;text-decoration:none;font-weight:800;font-size:15px;border-radius:999px;padding:8px 14px}
+.note{font-size:13.5px;color:var(--mute);line-height:1.5}
+.check{display:flex;justify-content:center;align-items:center;gap:10px;width:100%;border:2px solid var(--pink);background:transparent;color:var(--pink2);border-radius:18px;padding:14px;font-weight:900;font-size:18px}
+.check.on{background:var(--mint);border-color:var(--mint);color:var(--ink)}
 
-  h2{font-weight:800;font-size:clamp(1.2rem,3.2vw,1.5rem);margin:34px 0 14px;letter-spacing:-.01em}
-  .item{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px 20px 18px;margin-bottom:14px;box-shadow:0 14px 30px -26px rgba(25,26,46,.25);transition:background .25s}
-  .item.done{background:#F2FAF5;border-color:#CDE9D9}
-  .top{display:flex;gap:14px;align-items:flex-start}
-  .top input{appearance:none;-webkit-appearance:none;flex:none;width:28px;height:28px;border:2.5px solid var(--pink);border-radius:9px;margin-top:4px;cursor:pointer;display:grid;place-items:center;background:#fff}
-  .top input:checked{background:var(--ok);border-color:var(--ok)}
-  .top input:checked::after{content:"";width:7px;height:13px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px)}
-  .amt{font-weight:900;font-size:clamp(1.35rem,4.4vw,1.7rem);color:var(--pink);line-height:1.2}
-  .item.done .amt{color:var(--ok)}
-  .what{font-weight:800;font-size:1.08rem;line-height:1.45;margin-top:2px}
-  .body{margin-top:10px;padding-inline-start:42px;font-size:1rem;color:#33344A}
-  .body ul{padding-inline-start:18px}
-  .body li+li{margin-top:4px}
-  .tag{display:inline-block;font-size:.8rem;font-weight:800;padding:2px 10px;border-radius:20px;margin-top:10px;background:var(--sky-soft);color:#1B6FA8}
-  .tag.auto{background:#E8F5EE;color:var(--ok)}
-  .go{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-weight:800;font-size:.95rem;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--pink);padding-bottom:1px}
-  .go+.go{margin-inline-start:16px}
-
-  .total{margin:34px 0 0;background:var(--ink);color:#fff;border-radius:26px;padding:28px 24px;text-align:center}
-  .total .big{font-weight:900;font-size:clamp(2rem,8vw,3rem);color:var(--pink);line-height:1.1;margin:6px 0}
-  .total p{color:#D9D9E6;font-size:.98rem}
-
-  .cta{margin:34px 0 10px;text-align:center;background:#fff;border:1px solid var(--line);border-radius:26px;padding:30px 22px}
-  .cta h3{font-weight:900;font-size:clamp(1.25rem,3.6vw,1.6rem);line-height:1.35;text-wrap:balance}
-  .cta p{margin-top:10px;color:#3B3C52}
-  .btn{display:inline-flex;margin-top:18px;background:var(--pink);color:var(--ink);border-radius:100px;padding:15px 34px;font-weight:800;font-size:1.05rem;text-decoration:none;box-shadow:0 18px 36px -18px rgba(239,85,165,.6)}
-
-  .note{font-size:.85rem;color:var(--ink-soft);margin-top:26px;line-height:1.65}
-  footer{background:var(--ink);color:#fff;text-align:center;padding:30px 0 34px;margin-top:40px;font-size:.85rem}
-  footer img{height:42px;width:auto;opacity:.95}
+/* הסכום */
+.sum{display:flex;flex-direction:column;gap:8px}
+.row{display:flex;justify-content:space-between;gap:10px;background:rgba(255,255,255,.18);border-radius:14px;padding:10px 14px;font-weight:800;font-size:16px}
+.row span:last-child{white-space:nowrap}
+footer{max-width:560px;margin:8px auto 0;text-align:center;font-size:13px;color:var(--mute);line-height:1.6}
 </style>
 </head>
 <body>
+<main class="app">
 
-<header class="hero">
-  <div class="wrap">
-    <img src="../guide2/assets/logo-ink.png" alt="אמא משקיעה">
-    <div class="eyebrow">משקיעות עם עגלות · הצ׳קליסט</div>
-    <h1>הכסף שמגיע לך בהריון ואחרי הלידה</h1>
-    <p class="lead">כל מענק, החזר והטבה, עם קישור להגשה ליד כל אחד. מסמנות וי על מה שכבר טיפלת, והרשימה זוכרת איפה עצרת.</p>
-  </div>
-</header>
+  <!-- 1. פתיחה -->
+  <section class="scr dark center" style="padding-block:40px">
+    <span class="tag">🤰 משקיעות עם עגלות · הצ׳קליסט</span>
+    <h1 class="big">מעל 100,000 ₪<br><span class="pk">מחכים לך</span></h1>
+    <p class="lead">על כל ילד. חלק נכנס לבד, ועל חלק צריך רק לבקש. ריכזתי לך הכל במקום אחד, עם קישור ליד כל סעיף.</p>
+    <a class="cta" href="#board">יאללה, בואי נבדוק מה מגיע לך</a>
+    <p style="font-weight:800;color:var(--pink2)">באהבה, עדי 💛</p>
+  </section>
 
-<div class="bar"><div class="wrap"><div class="track"><div class="fill" id="fill"></div></div><div class="count num" id="count">0 מתוך 0</div></div></div>
+  <!-- 2. הלוח -->
+  <section class="scr creambg" id="board">
+    <span class="tag">📋 הצ׳קליסט שלך</span>
+    <h2 class="mid">8 דברים לבדוק<br>לפני ואחרי הלידה</h2>
+    <p style="font-size:16.5px;color:#4a4560">לוחצים על סעיף, קוראים, ומסמנים וי. הרשימה זוכרת איפה עצרת.</p>
+    <div class="board" id="chips"></div>
+    <p class="count center" style="display:flex;justify-content:center">סימנת <span id="cnt" style="margin-inline:6px">0</span> מתוך 8</p>
+  </section>
 
-<main class="wrap">
+  <!-- 3. ההטבות -->
+  <section class="scr dark item" id="zikui" data-e="💰" data-n="נקודות זיכוי" data-s="עד 58,080 ₪">
+    <span class="tag">1 מתוך 8 · צריך לבקש</span>
+    <div class="head"><div class="ico">💰</div><div><h3 class="mid">הנחה במס על כל ילד</h3><span class="amt">עד 58,080 ₪</span></div></div>
+    <ul>
+      <li>כל "נקודת זיכוי" מורידה לך 242 ₪ מהמס בכל חודש.</li>
+      <li>על כל ילד מגיעות לך 2.5 נקודות כבר בשנת הלידה, ועד גיל 5 מצטברות 20 נקודות.</li>
+    </ul>
+    <div class="do"><b>מה עושים:</b> שכירה? מעדכנת את טופס 101 בעבודה ומוסיפה את הילד. עצמאית? מכניסה אותו בדוח השנתי. שכחת? אפשר לקבל החזר מס עד 6 שנים אחורה.</div>
+    <p class="note">הסכום המלא רק למי שמשלמת מספיק מס כדי לנצל את כל הנקודות.</p>
+    <div class="links"><a class="lnk" target="_blank" rel="noopener" href="https://www.kolzchut.org.il/he/%D7%A0%D7%A7%D7%95%D7%93%D7%95%D7%AA_%D7%96%D7%99%D7%9B%D7%95%D7%99_%D7%9E%D7%9E%D7%A1_%D7%94%D7%9B%D7%A0%D7%A1%D7%94_%D7%9C%D7%94%D7%95%D7%A8%D7%94_%D7%9C%D7%99%D7%9C%D7%93_%D7%A2%D7%93_%D7%92%D7%99%D7%9C_5">כל הפרטים בכל זכות ←</a></div>
+    <button class="check" type="button">סימנתי ✓</button>
+  </section>
 
-  <h2>📌 מה שצריך לבקש (אחרת זה לא מגיע)</h2>
+  <section class="scr dark item" id="hisachon" data-e="🐷" data-n="חיסכון לכל ילד" data-s="עד 62,000 ₪">
+    <span class="tag">2 מתוך 8 · צריך לבקש</span>
+    <div class="head"><div class="ico">🐷</div><div><h3 class="mid">חיסכון לכל ילד, פי 3.5</h3><span class="amt">כמעט 62,000 ₪ בגיל 21</span></div></div>
+    <ul>
+      <li>המדינה מפקידה לילד 58 ₪ בכל חודש עד גיל 18.</li>
+      <li>אם לא עושים כלום, הכסף יושב במסלול סולידי ומגיע לבערך 17,000 ₪ בגיל 21.</li>
+    </ul>
+    <div class="do"><b>2 צעדים חכמים, 5 דקות באתר ביטוח לאומי:</b><br>1. מוסיפות עוד 58 ₪ מתוך קצבת הילדים (116 ₪ בחודש).<br>2. מעבירות לקופת גמל להשקעה, במסלול שמתאים לגיל הילד.</div>
+    <p class="note">בתשואה ממוצעת של 7% בשנה, לפני מס. אין הבטחה לתשואה.</p>
+    <div class="links"><a class="lnk" target="_blank" rel="noopener" href="https://adinahirr-commits.github.io/mominvest-guides/guide2/guide/">המדריך המלא שלי ←</a><a class="lnk" target="_blank" rel="noopener" href="https://www.btl.gov.il/benefits/children/HisahoLayeled/pages/default.aspx">ביטוח לאומי ←</a></div>
+    <button class="check" type="button">סימנתי ✓</button>
+  </section>
 
-  <div class="item" data-id="zikui">
-    <label class="top"><input type="checkbox" aria-label="סימנתי: נקודות זיכוי">
-      <div><div class="amt num">עד 58,080 ₪</div><div class="what">נקודות זיכוי במס על הילד</div></div></label>
-    <div class="body">
-      <ul>
-        <li>בשנת הלידה כבר מגיעות לך 2.5 נקודות, ועד גיל 5 של הילד מצטברות 20 נקודות.</li>
-        <li>כל נקודה שווה 242 ₪ בחודש (2,904 ₪ בשנה).</li>
-        <li><strong>מה עושים:</strong> ממלאות מחדש טופס 101 אצל המעסיק ומוסיפות את הילד.</li>
-        <li>פספסת שנים קודמות? אפשר לבקש החזר מס עד 6 שנים אחורה.</li>
-      </ul>
-      <span class="tag">רק למי שמשלמת מס הכנסה, ולפי גובה המס</span><br>
-      <a class="go" href="https://www.kolzchut.org.il/he/%D7%A0%D7%A7%D7%95%D7%93%D7%95%D7%AA_%D7%96%D7%99%D7%9B%D7%95%D7%99_%D7%9E%D7%9E%D7%A1_%D7%94%D7%9B%D7%A0%D7%A1%D7%94_%D7%9C%D7%94%D7%95%D7%A8%D7%94_%D7%9C%D7%99%D7%9C%D7%93_%D7%A2%D7%93_%D7%92%D7%99%D7%9C_5" target="_blank" rel="noopener">כל הפרטים בכל זכות ←</a>
+  <section class="scr dark item" id="kupa" data-e="🏥" data-n="סל הריון בקופה" data-s="אלפי ₪">
+    <span class="tag">3 מתוך 8 · צריך לבקש</span>
+    <div class="head"><div class="ico">🏥</div><div><h3 class="mid">סל הריון בקופת החולים</h3><span class="amt">אלפי ₪ בהחזרים</span></div></div>
+    <ul>
+      <li>בביטוח המשלים יש החזרים על: בדיקות בהריון (NIPT, צ׳יפ גנטי, סקירה נוספת), דולה, קורס הכנה ללידה ולילות במלון הבראה אחרי הלידה.</li>
+      <li>רק על דולה: בין 1,641 ₪ ל-1,868 ₪, לפי הקופה והמסלול.</li>
+    </ul>
+    <div class="do"><b>מה עושים:</b> נכנסות לאזור האישי באתר הקופה ← "החזרים", ומגישות עם הקבלה.</div>
+    <p class="note">במסלולי הבסיס אין סל הריון. התנאים שונים בכל קופה ובכל מסלול.</p>
+    <div class="links"><a class="lnk" target="_blank" rel="noopener" href="https://www.kupotguide.co.il/hashvaat-kupot-holim/herayon">השוואה בין הקופות ←</a><a class="lnk" target="_blank" rel="noopener" href="https://www.maccabi4u.co.il/eligibilites/2673/">מכבי שלי ←</a></div>
+    <button class="check" type="button">סימנתי ✓</button>
+  </section>
+
+  <section class="scr dark item" id="dmei" data-e="🍼" data-n="דמי לידה" data-s="15 שבועות">
+    <span class="tag">4 מתוך 8 · צריך לבקש</span>
+    <div class="head"><div class="ico">🍼</div><div><h3 class="mid">דמי לידה</h3><span class="amt">15 שבועות בתשלום</span></div></div>
+    <ul>
+      <li>מביטוח לאומי, לפי השכר שלך, עד 1,752 ₪ ליום.</li>
+    </ul>
+    <div class="do"><b>מה עושים:</b> מגישות תביעה לדמי לידה באתר ביטוח לאומי. יש עד 12 חודשים להגיש.</div>
+    <div class="links"><a class="lnk" target="_blank" rel="noopener" href="https://www.kolzchut.org.il/he/%D7%93%D7%9E%D7%99_%D7%9C%D7%99%D7%93%D7%94">דמי לידה בכל זכות ←</a></div>
+    <button class="check" type="button">סימנתי ✓</button>
+  </section>
+
+  <section class="scr dark item" id="miluim" data-e="🪖" data-n="מענק מילואים" data-s="10,700 ₪">
+    <span class="tag">5 מתוך 8 · בן הזוג במילואים?</span>
+    <div class="head"><div class="ico">🪖</div><div><h3 class="mid">מענק לבת זוג של מילואימניק</h3><span class="amt">10,700 ₪</span></div></div>
+    <ul>
+      <li>אם הארכת את חופשת הלידה ב-21 ימים או יותר, בזמן שבן הזוג היה במילואים.</li>
+      <li>התנאי: הוא שירת 45 ימים לפחות בצו 8, ולא קיבלת פיצוי על אובדן הכנסה מקרן הסיוע.</li>
+    </ul>
+    <div class="do"><b>מה עושים:</b> טופס מקוון אחד.</div>
+    <div class="links"><a class="lnk" target="_blank" rel="noopener" href="https://mushlam-frontend.wiz.digital.idf.il/m/PYZ55QW4F9">לטופס ההגשה ←</a><a class="lnk" target="_blank" rel="noopener" href="https://www.kolzchut.org.il/he/%D7%9E%D7%93%D7%A8%D7%99%D7%9A_%D7%9C%D7%9E%D7%A9%D7%A8%D7%AA%D7%99_%D7%9E%D7%99%D7%9C%D7%95%D7%90%D7%99%D7%9D_%D7%95%D7%91%D7%A0%D7%99_%D7%9E%D7%A9%D7%A4%D7%97%D7%95%D7%AA%D7%99%D7%94%D7%9D_%D7%91%D7%9E%D7%9C%D7%97%D7%9E%D7%AA_%D7%97%D7%A8%D7%91%D7%95%D7%AA_%D7%91%D7%A8%D7%96%D7%9C_%D7%95%D7%94%D7%9E%D7%9C%D7%97%D7%9E%D7%94_%D7%9E%D7%95%D7%9C_%D7%90%D7%99%D7%A8%D7%90%D7%9F_(%D7%9E%D7%9C%D7%97%D7%9E%D7%AA_%D7%94%D7%AA%D7%A7%D7%95%D7%9E%D7%94)">המדריך למשפחות מילואים ←</a></div>
+    <button class="check" type="button">סימנתי ✓</button>
+  </section>
+
+  <section class="scr dark item" id="zugi" data-e="💛" data-n="טיפול זוגי" data-s="עד 2,500 ₪">
+    <span class="tag">6 מתוך 8 · משפחות מילואים</span>
+    <div class="head"><div class="ico">💛</div><div><h3 class="mid">החזר על טיפול זוגי</h3><span class="amt">עד 2,500 ₪</span></div></div>
+    <ul>
+      <li>מקרן הסיוע למשרתי המילואים. על זכאות 2025: עד 2,500 ₪ ללוחמים ועד 1,000 ₪ לשאר, הגשה עד 31.12.2027.</li>
+      <li>על זכאות 2024: עד 1,500 ₪, הגשה עד 31.12.2026.</li>
+    </ul>
+    <div class="links"><a class="lnk" target="_blank" rel="noopener" href="https://www.kolzchut.org.il/he/%D7%9E%D7%93%D7%A8%D7%99%D7%9A_%D7%9C%D7%9E%D7%A9%D7%A8%D7%AA%D7%99_%D7%9E%D7%99%D7%9C%D7%95%D7%90%D7%99%D7%9D_%D7%95%D7%91%D7%A0%D7%99_%D7%9E%D7%A9%D7%A4%D7%97%D7%95%D7%AA%D7%99%D7%94%D7%9D_%D7%91%D7%9E%D7%9C%D7%97%D7%9E%D7%AA_%D7%97%D7%A8%D7%91%D7%95%D7%AA_%D7%91%D7%A8%D7%96%D7%9C_%D7%95%D7%94%D7%9E%D7%9C%D7%97%D7%9E%D7%94_%D7%9E%D7%95%D7%9C_%D7%90%D7%99%D7%A8%D7%90%D7%9F_(%D7%9E%D7%9C%D7%97%D7%9E%D7%AA_%D7%94%D7%AA%D7%A7%D7%95%D7%9E%D7%94)">התנאים בכל זכות ←</a></div>
+    <button class="check" type="button">סימנתי ✓</button>
+  </section>
+
+  <section class="scr dark item" id="maanak" data-e="👶" data-n="מענק לידה" data-s="נכנס לבד">
+    <span class="tag auto">7 מתוך 8 · נכנס לבד</span>
+    <div class="head"><div class="ico">👶</div><div><h3 class="mid">מענק לידה</h3><span class="amt">631 ₪ עד 2,103 ₪</span></div></div>
+    <ul>
+      <li>2,103 ₪ על הילד הראשון, 946 ₪ על השני, 631 ₪ מהשלישי ואילך. בתאומים 10,514 ₪.</li>
+      <li>נכנס לחשבון שלך בתוך חודש מהלידה בבית החולים.</li>
+    </ul>
+    <div class="do"><b>מה עושים:</b> רק לוודא שזה הגיע.</div>
+    <div class="links"><a class="lnk" target="_blank" rel="noopener" href="https://www.kolzchut.org.il/he/%D7%9E%D7%A2%D7%A0%D7%A7_%D7%9C%D7%99%D7%93%D7%94">מענק לידה בכל זכות ←</a></div>
+    <button class="check" type="button">סימנתי ✓</button>
+  </section>
+
+  <section class="scr dark item" id="kitzba" data-e="📅" data-n="קצבת ילדים" data-s="נכנס לבד">
+    <span class="tag auto">8 מתוך 8 · נכנס לבד</span>
+    <div class="head"><div class="ico">📅</div><div><h3 class="mid">קצבת ילדים</h3><span class="amt">173 ₪ בחודש, עד גיל 18</span></div></div>
+    <ul>
+      <li>173 ₪ על הילד הראשון, 219 ₪ על השני עד הרביעי.</li>
+      <li>על ילד אחד זה לפחות 37,368 ₪ עד גיל 18.</li>
+    </ul>
+    <div class="do"><b>מה עושים:</b> רק לוודא שזה נכנס כל חודש.</div>
+    <div class="links"><a class="lnk" target="_blank" rel="noopener" href="https://www.kolzchut.org.il/he/%D7%A7%D7%A6%D7%91%D7%AA_%D7%99%D7%9C%D7%93%D7%99%D7%9D">קצבת ילדים בכל זכות ←</a></div>
+    <button class="check" type="button">סימנתי ✓</button>
+  </section>
+
+  <!-- 4. הסכום -->
+  <section class="scr pinkbg">
+    <span class="tag">🧮 בסך הכל, על כל ילד</span>
+    <h2 class="big">מעל 100,000 ₪</h2>
+    <div class="sum">
+      <div class="row"><span>💰 נקודות זיכוי</span><span>עד 58,080 ₪</span></div>
+      <div class="row"><span>📅 קצבת ילדים עד גיל 18</span><span>לפחות 37,368 ₪</span></div>
+      <div class="row"><span>🐷 חיסכון לכל ילד + המענקים</span><span>13,692 ₪</span></div>
+      <div class="row"><span>👶 מענק לידה</span><span>לפחות 631 ₪</span></div>
     </div>
-  </div>
+    <p class="small" style="opacity:.95">ביחד לפחות 109,771 ₪, רק מהמדינה. בלי דמי הלידה, בלי ההחזרים מהקופה ובלי המענקים למשפחות מילואים. נקודות הזיכוי לפי המס שאת משלמת.</p>
+  </section>
 
-  <div class="item" data-id="hisachon">
-    <label class="top"><input type="checkbox" aria-label="סימנתי: חיסכון לכל ילד">
-      <div><div class="amt num">כמעט 62,000 ₪</div><div class="what">חיסכון לכל ילד, עם 2 צעדים חכמים</div></div></label>
-    <div class="body">
-      <ul>
-        <li>המדינה מפקידה לתינוק 58 ₪ בכל חודש עד גיל 18. אם לא עושים כלום, הכסף יושב במסלול סולידי ומגיע לבערך 17,000 ₪ בגיל 21.</li>
-        <li><strong>צעד 1:</strong> מבקשות להוסיף עוד 58 ₪ מתוך קצבת הילדים, כך שמופקדים 116 ₪ בחודש.</li>
-        <li><strong>צעד 2:</strong> מעבירות את החיסכון לקופת גמל להשקעה, ובוחרות מסלול שמתאים לגיל הילד.</li>
-        <li>שני הצעדים לוקחים 5 דקות באתר ביטוח לאומי. בתשואה ממוצעת של 7% זה מגיע לכמעט 62,000 ₪ בגיל 21 (לפני מס, ואין הבטחה לתשואה).</li>
-      </ul>
-      <a class="go" href="https://adinahirr-commits.github.io/mominvest-guides/guide2/guide/" target="_blank" rel="noopener">המדריך המלא שלי, צעד אחרי צעד ←</a>
-      <a class="go" href="https://www.btl.gov.il/benefits/children/HisahoLayeled/pages/default.aspx" target="_blank" rel="noopener">ביטוח לאומי ←</a>
-    </div>
-  </div>
+  <!-- 5. מה הלאה -->
+  <section class="scr mintbg center">
+    <span class="tag">🌱 ומה עושים עם הכסף?</span>
+    <h2 class="mid">שהכסף הזה יגדל<br>יחד עם הילדים</h2>
+    <p style="font-size:17.5px">בהדרכה הקרובה שלי אני מראה איך אני בונה לבנות שלי חצי מיליון שקל עד גיל 18. שעה. ללא עלות.</p>
+    <a class="cta ink" id="cta-webinar" href="https://academy.mominvest.co.il/r/webinar-hatavot" target="_blank" rel="noopener">לשריון מקום בהדרכה הקרובה</a>
+  </section>
 
-  <div class="item" data-id="kupa">
-    <label class="top"><input type="checkbox" aria-label="סימנתי: החזרים מקופת החולים">
-      <div><div class="amt">סל הריון</div><div class="what">החזרים מהביטוח המשלים בקופת החולים</div></div></label>
-    <div class="body">
-      <ul>
-        <li>בביטוח המשלים של כל הקופות יש סל הריון עם החזרים על: בדיקות בהריון (NIPT, צ׳יפ גנטי, סקירה נוספת), דולה, קורס הכנה ללידה ולילות במלון הבראה אחרי הלידה.</li>
-        <li>דוגמה, מכבי שלי: 75% עד 1,767 ₪ על דולה, 75% עד 1,000 ₪ על קורס הכנה, עד 2,358 ₪ על בדיקות בהריון, ועד 471 ₪ ללילה בהבראה (3 לילות).</li>
-        <li><strong>מה עושים:</strong> נכנסות לאזור האישי ← החזרים, ומגישות עם הקבלה.</li>
-      </ul>
-      <span class="tag">התנאים והסכומים שונים בכל קופה ובכל רמת ביטוח</span><br>
-      <a class="go" href="https://www.kupotguide.co.il/hashvaat-kupot-holim/herayon" target="_blank" rel="noopener">השוואה בין הקופות ←</a>
-      <a class="go" href="https://www.maccabi4u.co.il/eligibilites/2673/" target="_blank" rel="noopener">מכבי שלי ←</a>
-    </div>
-  </div>
-
-  <div class="item" data-id="dmei">
-    <label class="top"><input type="checkbox" aria-label="סימנתי: דמי לידה">
-      <div><div class="amt">דמי לידה</div><div class="what">15 שבועות בתשלום מביטוח לאומי</div></div></label>
-    <div class="body">
-      <ul>
-        <li>הגובה לפי השכר שלך, עד 1,752 ₪ ליום.</li>
-        <li><strong>מה עושים:</strong> מגישות תביעה לדמי לידה באתר ביטוח לאומי. אפשר להגיש עד 12 חודשים.</li>
-      </ul>
-      <a class="go" href="https://www.kolzchut.org.il/he/%D7%93%D7%9E%D7%99_%D7%9C%D7%99%D7%93%D7%94" target="_blank" rel="noopener">דמי לידה בכל זכות ←</a>
-    </div>
-  </div>
-
-  <h2>🪖 בן הזוג במילואים?</h2>
-
-  <div class="item" data-id="miluim">
-    <label class="top"><input type="checkbox" aria-label="סימנתי: מענק מילואים">
-      <div><div class="amt num">10,700 ₪</div><div class="what">מענק לבת זוג שהאריכה את חופשת הלידה</div></div></label>
-    <div class="body">
-      <ul>
-        <li>מגיע כשהארכת את חופשת הלידה ב-21 ימים לפחות בזמן שבן הזוג היה במילואים.</li>
-        <li>התנאי: הוא שירת 45 ימים לפחות בצו 8, ולא קיבלת פיצוי על אובדן הכנסה מקרן הסיוע.</li>
-        <li><strong>מה עושים:</strong> טופס מקוון אחד.</li>
-      </ul>
-      <a class="go" href="https://mushlam-frontend.wiz.digital.idf.il/m/PYZ55QW4F9" target="_blank" rel="noopener">לטופס ההגשה ←</a>
-      <a class="go" href="https://www.kolzchut.org.il/he/%D7%9E%D7%93%D7%A8%D7%99%D7%9A_%D7%9C%D7%9E%D7%A9%D7%A8%D7%AA%D7%99_%D7%9E%D7%99%D7%9C%D7%95%D7%90%D7%99%D7%9D_%D7%95%D7%91%D7%A0%D7%99_%D7%9E%D7%A9%D7%A4%D7%97%D7%95%D7%AA%D7%99%D7%94%D7%9D_%D7%91%D7%9E%D7%9C%D7%97%D7%9E%D7%AA_%D7%97%D7%A8%D7%91%D7%95%D7%AA_%D7%91%D7%A8%D7%96%D7%9C_%D7%95%D7%94%D7%9E%D7%9C%D7%97%D7%9E%D7%94_%D7%9E%D7%95%D7%9C_%D7%90%D7%99%D7%A8%D7%90%D7%9F_(%D7%9E%D7%9C%D7%97%D7%9E%D7%AA_%D7%94%D7%AA%D7%A7%D7%95%D7%9E%D7%94)" target="_blank" rel="noopener">המדריך למשפחות מילואים ←</a>
-    </div>
-  </div>
-
-  <div class="item" data-id="zugi">
-    <label class="top"><input type="checkbox" aria-label="סימנתי: טיפול זוגי">
-      <div><div class="amt num">עד 2,500 ₪</div><div class="what">החזר על טיפול זוגי</div></div></label>
-    <div class="body">
-      <ul>
-        <li>מקרן הסיוע למשרתי המילואים. על זכאות 2025: עד 2,500 ₪ ללוחמים ועד 1,000 ₪ לשאר, הגשה עד 31.12.2027.</li>
-        <li>על זכאות 2024: עד 1,500 ₪, הגשה עד 31.12.2026.</li>
-      </ul>
-      <a class="go" href="https://www.kolzchut.org.il/he/%D7%9E%D7%93%D7%A8%D7%99%D7%9A_%D7%9C%D7%9E%D7%A9%D7%A8%D7%AA%D7%99_%D7%9E%D7%99%D7%9C%D7%95%D7%90%D7%99%D7%9D_%D7%95%D7%91%D7%A0%D7%99_%D7%9E%D7%A9%D7%A4%D7%97%D7%95%D7%AA%D7%99%D7%94%D7%9D_%D7%91%D7%9E%D7%9C%D7%97%D7%9E%D7%AA_%D7%97%D7%A8%D7%91%D7%95%D7%AA_%D7%91%D7%A8%D7%96%D7%9C_%D7%95%D7%94%D7%9E%D7%9C%D7%97%D7%9E%D7%94_%D7%9E%D7%95%D7%9C_%D7%90%D7%99%D7%A8%D7%90%D7%9F_(%D7%9E%D7%9C%D7%97%D7%9E%D7%AA_%D7%94%D7%AA%D7%A7%D7%95%D7%9E%D7%94)" target="_blank" rel="noopener">התנאים בכל זכות ←</a>
-    </div>
-  </div>
-
-  <h2>✅ מה שנכנס לבד (רק לוודא שהגיע)</h2>
-
-  <div class="item" data-id="maanak">
-    <label class="top"><input type="checkbox" aria-label="סימנתי: מענק לידה">
-      <div><div class="amt num">2,103 ₪</div><div class="what">מענק לידה על הילד הראשון</div></div></label>
-    <div class="body">
-      <ul>
-        <li>946 ₪ על הילד השני, 631 ₪ מהשלישי ואילך. בתאומים 10,514 ₪.</li>
-        <li>נכנס לחשבון שלך בתוך חודש מהלידה בבית החולים.</li>
-      </ul>
-      <span class="tag auto">אוטומטי</span><br>
-      <a class="go" href="https://www.kolzchut.org.il/he/%D7%9E%D7%A2%D7%A0%D7%A7_%D7%9C%D7%99%D7%93%D7%94" target="_blank" rel="noopener">מענק לידה בכל זכות ←</a>
-    </div>
-  </div>
-
-  <div class="item" data-id="kitzba">
-    <label class="top"><input type="checkbox" aria-label="סימנתי: קצבת ילדים">
-      <div><div class="amt num">173 ₪ בחודש</div><div class="what">קצבת ילדים, עד גיל 18</div></div></label>
-    <div class="body">
-      <ul>
-        <li>173 ₪ על הילד הראשון, 219 ₪ על השני עד הרביעי.</li>
-        <li>על ילד ראשון זה 37,368 ₪ עד גיל 18.</li>
-      </ul>
-      <span class="tag auto">אוטומטי</span><br>
-      <a class="go" href="https://www.kolzchut.org.il/he/%D7%A7%D7%A6%D7%91%D7%AA_%D7%99%D7%9C%D7%93%D7%99%D7%9D" target="_blank" rel="noopener">קצבת ילדים בכל זכות ←</a>
-    </div>
-  </div>
-
-  <div class="total">
-    <div>על כל ילד, רק מהמדינה:</div>
-    <div class="big num">מעל 100,000 ₪</div>
-    <p>נקודות זיכוי עד 58,080 + קצבת ילדים עד גיל 18 (לפחות 37,368) + חיסכון לכל ילד 12,528 + מענקי החיסכון 1,164 + מענק לידה (לפחות 631) = לפחות 109,771 ₪. בלי דמי הלידה, בלי ההחזרים מהקופה ובלי המענקים למשפחות מילואים. נקודות הזיכוי לפי המס שאת משלמת.</p>
-  </div>
-
-  <div class="cta">
-    <h3>וזה רק הכסף שמגיע לך.<br>מה עושים איתו כדי שיגדל?</h3>
-    <p>בהדרכה הקרובה שלי אני מראה איך אני בונה לבנות שלי חצי מיליון שקל עד גיל 18. שעה. ללא עלות.</p>
-    <a class="btn" id="cta-webinar" href="https://academy.mominvest.co.il/r/webinar-hatavot" target="_blank" rel="noopener">לשריון מקום בהדרכה הקרובה »</a>
-  </div>
-
-  <p class="note">הסכומים נכונים לנובמבר 2026 לפי ביטוח לאומי, כל זכות ואתרי הקופות. התנאים המלאים והמחייבים הם באתרים הרשמיים. זה מידע כללי ולא ייעוץ אישי.</p>
 </main>
-
-<footer><img src="../guide2/assets/logo-white.png" alt="אמא משקיעה"><div style="margin-top:10px;opacity:.8">עדי סומך · אמא משקיעה</div></footer>
+<footer>הסכומים נכונים לנובמבר 2026 לפי ביטוח לאומי, כל זכות ואתרי הקופות. התנאים המלאים והמחייבים הם באתרים הרשמיים. זה מידע כללי ולא ייעוץ אישי.<br>עדי סומך · אמא משקיעה</footer>
 
 <script>
   (function(){
     var KEY='mi_hatavot_v1', st={};
     try{ st=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
-    var items=[].slice.call(document.querySelectorAll('.item'));
+    var items=[].slice.call(document.querySelectorAll('.item')), chips=document.getElementById('chips');
+    items.forEach(function(it){
+      var a=document.createElement('a'); a.className='chip'; a.href='#'+it.id;
+      a.innerHTML='<span class="e">'+it.dataset.e+'</span><span>'+it.dataset.n+'</span><span class="s">'+it.dataset.s+'</span>';
+      it._chip=a; chips.appendChild(a);
+      it.querySelector('.check').addEventListener('click',function(){
+        st[it.id]=!st[it.id]; try{ localStorage.setItem(KEY,JSON.stringify(st)); }catch(e){}
+        paint();
+        if(st[it.id]){ var nx=items[items.indexOf(it)+1]; if(nx) setTimeout(function(){ nx.scrollIntoView({behavior:'smooth'}); },350); }
+      });
+    });
     function paint(){
       var n=0;
-      items.forEach(function(it){ var on=!!st[it.dataset.id]; it.classList.toggle('done',on); it.querySelector('input').checked=on; if(on)n++; });
-      document.getElementById('count').textContent=n+' מתוך '+items.length;
-      document.getElementById('fill').style.width=(items.length? n*100/items.length:0)+'%';
+      items.forEach(function(it){ var on=!!st[it.id]; if(on)n++; it._chip.classList.toggle('on',on); var b=it.querySelector('.check'); b.classList.toggle('on',on); b.textContent=on?'✓ סימנתי':'סימנתי ✓'; });
+      document.getElementById('cnt').textContent=n;
     }
-    items.forEach(function(it){ it.querySelector('input').addEventListener('change',function(e){ st[it.dataset.id]=e.target.checked; try{ localStorage.setItem(KEY,JSON.stringify(st)); }catch(err){} paint(); }); });
     paint();
   })();
   (function(){
